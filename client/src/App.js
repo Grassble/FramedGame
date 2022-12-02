@@ -6,6 +6,7 @@ import GameScreen from './Components/GameScreen';
 function App() {
   
   const [movies, setMovies] = useState([])
+  let totalMovie = movies.length
 
   useEffect(() => {
     fetch("http://localhost:4000/movies")
@@ -19,7 +20,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/game">
-            <GameScreen movies={movies} />
+            <GameScreen movies={movies} totalMovie={totalMovie} />
           </Route>
           <Route path="/">
             <h1>Page Count:</h1>

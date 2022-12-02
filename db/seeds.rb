@@ -29,3 +29,19 @@ image3: "https://cdn.vox-cdn.com/thumbor/N3WUzxm_nnls-zNbbVMvbX9U5aI=/1400x0/fil
 image4: "https://m.media-amazon.com/images/M/MV5BNDY1MzE3MTI0Nl5BMl5BanBnXkFtZTcwNDIwNTI5Mw@@._V1_.jpg",
 image5: "https://media.vanityfair.com/photos/61f2d068c7c976782553ded7/master/pass/fight-club-ending.jpg",
 image6: "https://cdn.vox-cdn.com/thumbor/XK7XYWvAOsJQl2nBXfn0IMJLwiE=/0x0:2400x1350/1200x800/filters:focal(1008x483:1392x867)/cdn.vox-cdn.com/uploads/chorus_image/image/70426655/fightclubdvd.0.jpg")
+
+Movie.create(title: "Jojo Rabbit",
+image1: "https://deadline.com/wp-content/uploads/2019/12/img_5314.jpeg?w=1024",
+image2: "https://carboncostume.com/wordpress/wp-content/uploads/2020/03/Elsa-from-Jojo-Rabbit.png",
+image3: "https://momentmag.com/wp-content/uploads/2020/02/JojoRabbiNiceNazi.jpg",
+image4: "https://9b16f79ca967fd0708d1-2713572fef44aa49ec323e813b06d2d9.ssl.cf2.rackcdn.com/1140x_a10-7_cTC/SCENESTEALERS-5-1582205615.jpg",
+image5: "https://m.media-amazon.com/images/M/MV5BNWY5MjJiYTUtZDBiOC00Y2M5LWE5N2EtMjA4YzAwOTRkZDc5XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+image6: "https://m.media-amazon.com/images/M/MV5BZTFkNGYyMjktZTNlMy00YmQxLTg2YWEtY2NiZTgzOGVkYTFhXkEyXkFqcGdeQTNwaW5nZXN0._V1_.jpg")
+
+Movie.create(title: "Guardians of the Galaxy",
+image1: "https://www.awn.com/sites/default/files/styles/original/public/image/attached/1017353-gotgdarkaster-1200.jpg?itok=TrLQBqHZ",
+image2: "https://medias.spotern.com/spots/w640/5/5120-1532336916.jpg",
+image3: "https://medias.spotern.com/spots/w640/106/106130-1532336916.jpg",
+image4: "https://cdn.images.express.co.uk/img/dynamic/36/590x/secondary/Captain-Marvel-Guardians-of-the-Galaxy-ronan-the-accuser-skrull-kree-villain-1467919.jpg?r=1534689229162",
+image5: "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/12/James-Gunn-Adam-Sandler-Rocket-Raccoon.jpg",
+image6: "https://resizing.flixster.com/XAeNb3qh0Bv5lmjhP53KRbT1UOE=/740x380/v2/https://statcdn.fandango.com/MPX/image/NBCU_Fandango/381/819/GuardiansOfTheGalaxy_157231_Trailer2.jpg")
