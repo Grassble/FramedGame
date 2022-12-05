@@ -1,13 +1,17 @@
 import React from "react"
 import MovieCard from "./MovieCard"
+import Search from "./Search";
 import { useState, useEffect } from 'react';
 
 function GameScreen ({movies, totalMovie}) {
 
     const [specificMovie, setSpecificMovie] = useState([]);
     let [randomNum, setRandomNum] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("")
 
-    
+    let filteredMovies = movies.filter(movie => {
+        return movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+      })
 
     const randomNumber = () => {
         setRandomNum(Math.floor(Math.random() * (totalMovie - 1 + 1)) + 1)
@@ -37,7 +41,8 @@ function GameScreen ({movies, totalMovie}) {
             <button onClick={randomNumber}>Random</button>
             <h1>{specificMovie.title}</h1>
             <h2>#{specificMovie.id}</h2>
-            <img className="guessImage" src={specificMovie.image1} alt="Image1" /><br />
+            <img className="guessImage" src={specificMovie.image1} alt="Image1" /><br /><br />
+            <Search movies={filteredMovies}/><br />
             <button onClick={backNumber}>Back</button><button onClick={nextNumber}>Next</button>
         </div>
     )

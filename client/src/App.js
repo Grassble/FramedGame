@@ -19,10 +19,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
-          <Route path="/game">
+          <Route path="/">
             <GameScreen movies={movies} totalMovie={totalMovie} />
           </Route>
-          <Route path="/">
+          <Route path="/game">
             <h1>Page Count:</h1>
           </Route>
         </Switch>
