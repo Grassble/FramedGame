@@ -1,5 +1,4 @@
 import React from "react"
-import MovieCard from "./MovieCard"
 import Search from "./Search";
 import { useState, useEffect } from 'react';
 
@@ -42,7 +41,7 @@ function GameScreen ({movies, totalMovie}) {
             <h1>{specificMovie.title}</h1>
             <h2>#{specificMovie.id}</h2>
             <img className="guessImage" src={specificMovie.image1} alt="Image1" /><br /><br />
-            <Search movies={filteredMovies}/><br />
+            <Search movies={filteredMovies} specificMovie={specificMovie} setSearchTerm={setSearchTerm} searchTerm={searchTerm}/><br />
             <button onClick={backNumber}>Back</button><button onClick={nextNumber}>Next</button>
         </div>
     )
