@@ -1,32 +1,129 @@
 import React from "react";
+import { useState } from "react";
 
 function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
 
-    let tries = 0
+    const [toggleEdit, setToggleEdit] = useState(true)
+    const [tries, setTries] = useState(0)
+    const [answer, setAnswer] = useState(false)
+
+    console.log(specificMovie)
+
+    const addTry = (e) => {
+        e.preventDefault()
+        if (tries < 6 && specificMovie.title !== searchTerm) {
+            setTries(tries + 1)
+        };
+        if (tries >= 6 && specificMovie.title !== searchTerm) {
+            setTries(6)
+        };
+        if (tries < 6 && specificMovie.title === searchTerm) {
+            setTries(tries + 1)
+            setAnswer(true)
+            console.log("Correct")
+        }
+        console.log(tries)
+
+        fetch(`http://localhost:4000/movies/${specificMovie.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                tries: tries
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    }
+
+    const addTries = (e) => {
+        e.preventDefault()
+        if (tries < 6 && specificMovie.title !== searchTerm) {
+            setTries(tries + 1)
+        };
+        if (tries >= 6 && specificMovie.title !== searchTerm) {
+            setTries(6)
+        };
+        if (tries < 6 && specificMovie.title === searchTerm) {
+            setTries(tries + 1)
+            setAnswer(true)
+            console.log("Correct")
+        }
+        console.log(tries)
+    }
 
     
+
     const onSearch = (e) => {
         e.preventDefault();
         setSearchTerm(e.target.value)
     }
+   
     
-    const onClick = (e) => {
-        if(specificMovie.title == searchTerm)
-            console.log("correct")
-        if (specificMovie.title != searchTerm && tries < 6)
-            console.log("incorrect")
-            tries = tries + 1
-            console.log(tries)
-        if (specificMovie.title != searchTerm && tries >= 6)
-            console.log("failed")
-    }
-
-    return(
+    return (
         <div className="search-container">
-            <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
-            <button onClick={onClick}>Submit</button>
+            { tries === 0 && answer === false &&
+                <div>
+                    <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
+                    <button onClick={addTry}>Submit</button> 
+                    <p>Guess the Movie!</p>
+                    <p>Tries: {tries}</p>
+                    <p>eye: {specificMovie.tries}</p>
+                </div>
+            }
+            { tries === 1 && answer === false &&
+                <div>
+                    <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
+                    <button onClick={addTry}>Submit</button> 
+                    <p>Incorrect!</p>
+                    <p>Tries: {tries}</p>
+                </div>
+            }
+            { tries === 2 && answer === false &&
+                <div>
+                    <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
+                    <button onClick={addTry}>Submit</button> 
+                    <p>Incorrect!</p>
+                    <p>Tries: {tries}</p>
+                </div>
+            }
+            { tries === 3 && answer === false &&
+                <div>
+                    <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
+                    <button onClick={addTry}>Submit</button> 
+                    <p>Incorrect!</p>
+                    <p>Tries: {tries}</p>
+                </div>
+            }
+            { tries === 4 && answer === false &&
+                <div>
+                    <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
+                    <button onClick={addTry}>Submit</button> 
+                    <p>Incorrect!</p>
+                    <p>Tries: {tries}</p>
+                </div>
+            }
+            { tries === 5 && answer === false &&
+                <div>
+                    <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
+                    <button onClick={addTry}>Submit</button> 
+                    <p>Incorrect! Last Guess!</p>
+                    <p>Tries: {tries}</p>
+                </div>
+            }
+            { tries === 6 && answer === false && 
+                <div>
+                    <p>Better luck next time!</p>
+                    <p>Tries: {tries}</p>
+                </div>}
+            { answer === true && 
+            <div>
+                <p>Correct!</p>
+                <p>Tries: {tries}</p>
+            </div>}
         </div>
-    );
+    )
 }
 
 export default Search;
