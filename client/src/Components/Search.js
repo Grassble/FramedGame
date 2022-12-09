@@ -3,13 +3,15 @@ import { useState } from "react";
 
 function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
 
-    const [toggleEdit, setToggleEdit] = useState(true)
-    const [tries, setTries] = useState(0)
+    console.log(specificMovie.tries)
+    const [tries, setTries] = useState(specificMovie.tries)
+   
+
+    
     const [answer, setAnswer] = useState(false)
 
-    console.log(specificMovie)
-
     const addTry = (e) => {
+        console.log(tries)
         e.preventDefault()
         if (tries < 6 && specificMovie.title !== searchTerm) {
             setTries(tries + 1)
@@ -59,7 +61,8 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
         e.preventDefault();
         setSearchTerm(e.target.value)
     }
-   
+
+    
     
     return (
         <div className="search-container">
@@ -78,6 +81,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
                     <p>Tries: {tries}</p>
+                    <p>eye: {specificMovie.tries}</p>
                 </div>
             }
             { tries === 2 && answer === false &&
@@ -86,6 +90,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
                     <p>Tries: {tries}</p>
+                    <p>eye: {specificMovie.tries}</p>
                 </div>
             }
             { tries === 3 && answer === false &&
@@ -94,6 +99,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
                     <p>Tries: {tries}</p>
+                    <p>eye: {specificMovie.tries}</p>
                 </div>
             }
             { tries === 4 && answer === false &&
@@ -102,6 +108,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
                     <p>Tries: {tries}</p>
+                    <p>eye: {specificMovie.tries}</p>
                 </div>
             }
             { tries === 5 && answer === false &&
@@ -110,12 +117,14 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect! Last Guess!</p>
                     <p>Tries: {tries}</p>
+                    <p>eye: {specificMovie.tries}</p>
                 </div>
             }
             { tries === 6 && answer === false && 
                 <div>
                     <p>Better luck next time!</p>
                     <p>Tries: {tries}</p>
+                    <p>eye: {specificMovie.tries}</p>
                 </div>}
             { answer === true && 
             <div>

@@ -13,7 +13,7 @@ image3: "https://steamuserimages-a.akamaihd.net/ugc/1843673153249332223/FA37F017
 image4: "https://images.foxtv.com/static.fox5ny.com/www.fox5ny.com/content/uploads/2022/03/932/524/EEAAO_03940_R.jpg?ve=1&tl=1",
 image5: "https://media1.popsugar-assets.com/files/thumbor/jo8sSTbtuG4SxGi7rrQAtVZTjzo/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2022/03/25/721/n/1922153/74eadd9d73da7545_MCDEVEV_EC061/i/Jamie-Lee-Curtis-Microbob-Bangs.jpg",
 image6: "https://media1.cltampa.com/cltampa/imager/u/original/13225388/capture_-_everything_everywhere_katie_lida_-_a24_films_.jpg",
-tries: 1)
+tries: 0)
 
 Movie.create(title: "Baby Driver",
 image1: "https://static01.nyt.com/images/2017/06/24/arts/02BADYDIVERACTION3/02BADYDIVERACTION3-superJumbo.jpg",

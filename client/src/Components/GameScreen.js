@@ -7,6 +7,7 @@ function GameScreen ({movies, totalMovie}) {
     const [specificMovie, setSpecificMovie] = useState([]);
     let [randomNum, setRandomNum] = useState(1);
     const [searchTerm, setSearchTerm] = useState("")
+    const [tries, setTries] = useState(specificMovie.tries)
 
     let filteredMovies = movies.filter(movie => {
         return movie.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -41,7 +42,7 @@ function GameScreen ({movies, totalMovie}) {
             <h1>{specificMovie.title}</h1>
             <h2>#{specificMovie.id}</h2>
             <img className="guessImage" src={specificMovie.image1} alt="Image1" /><br /><br />
-            <Search movies={filteredMovies} specificMovie={specificMovie} setSearchTerm={setSearchTerm} searchTerm={searchTerm}/><br />
+            <Search movies={filteredMovies} specificMovie={specificMovie} setSearchTerm={setSearchTerm} searchTerm={searchTerm} tries={tries} setTries={setTries}/><br />
             <button onClick={backNumber}>Back</button><button onClick={nextNumber}>Next</button>
         </div>
     )

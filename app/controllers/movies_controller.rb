@@ -14,10 +14,16 @@ class MoviesController < ApplicationController
         render json: movie, status: :created
     end
 
+    def update
+        movie = Movie.find(params[:id])
+        movie.update!(movie_params)
+        render json: movie, status: :ok
+    end
+
     private
 
     def movie_params
-        params.permit(:title, :image1, :image2, :image3, :image4, :image5, :image6)
+        params.permit(:title, :image1, :image2, :image3, :image4, :image5, :image6, :tries)
     end
 
 end
