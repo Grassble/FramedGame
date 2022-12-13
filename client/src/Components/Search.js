@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import ImageSlider from "./ImageSlider";
 
 function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
 
     console.log(specificMovie.tries)
-    const [tries, setTries] = useState(specificMovie.tries)
+    const [tries, setTries] = useState(1)
    
 
     
@@ -39,21 +40,21 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
             .then((json) => console.log(json));
     }
 
-    const addTries = (e) => {
-        e.preventDefault()
-        if (tries < 6 && specificMovie.title !== searchTerm) {
-            setTries(tries + 1)
-        };
-        if (tries >= 6 && specificMovie.title !== searchTerm) {
-            setTries(6)
-        };
-        if (tries < 6 && specificMovie.title === searchTerm) {
-            setTries(tries + 1)
-            setAnswer(true)
-            console.log("Correct")
-        }
-        console.log(tries)
-    }
+    // const addTries = (e) => {
+    //     e.preventDefault()
+    //     if (tries < 6 && specificMovie.title !== searchTerm) {
+    //         setTries(tries + 1)
+    //     };
+    //     if (tries >= 6 && specificMovie.title !== searchTerm) {
+    //         setTries(6)
+    //     };
+    //     if (tries < 6 && specificMovie.title === searchTerm) {
+    //         setTries(tries + 1)
+    //         setAnswer(true)
+    //         console.log("Correct")
+    //     }
+    //     console.log(tries)
+    // }
 
     
 
@@ -68,6 +69,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
         <div className="search-container">
             { tries === 0 && answer === false &&
                 <div>
+                    <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Guess the Movie!</p>
@@ -77,6 +79,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
             }
             { tries === 1 && answer === false &&
                 <div>
+                    <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
@@ -86,6 +89,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
             }
             { tries === 2 && answer === false &&
                 <div>
+                    <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
@@ -95,6 +99,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
             }
             { tries === 3 && answer === false &&
                 <div>
+                    <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
@@ -104,6 +109,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
             }
             { tries === 4 && answer === false &&
                 <div>
+                    <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
@@ -113,6 +119,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
             }
             { tries === 5 && answer === false &&
                 <div>
+                    <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect! Last Guess!</p>
@@ -122,12 +129,14 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
             }
             { tries === 6 && answer === false && 
                 <div>
+                    <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                     <p>Better luck next time!</p>
                     <p>Tries: {tries}</p>
                     <p>eye: {specificMovie.tries}</p>
                 </div>}
             { answer === true && 
             <div>
+                <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                 <p>Correct!</p>
                 <p>Tries: {tries}</p>
             </div>}

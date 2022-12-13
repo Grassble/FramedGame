@@ -41,7 +41,6 @@ function GameScreen ({movies, totalMovie}) {
             <button onClick={randomNumber}>Random</button>
             <h1>{specificMovie.title}</h1>
             <h2>#{specificMovie.id}</h2>
-            <img className="guessImage" src={specificMovie.image1} alt="Image1" /><br /><br />
             <Search movies={filteredMovies} specificMovie={specificMovie} setSearchTerm={setSearchTerm} searchTerm={searchTerm} tries={tries} setTries={setTries}/><br />
             <button onClick={backNumber}>Back</button><button onClick={nextNumber}>Next</button>
         </div>
