@@ -1,11 +1,18 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImageSlider from "./ImageSlider";
 
-function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
+function Search ({searchTerm, setSearchTerm, movies, specificMovie, tries, setTries}) {
 
-    console.log(specificMovie.tries)
-    const [tries, setTries] = useState(1)
+    const MakeComponent = props => {
+        const { path, value, info, update, specificMovie } = props;
+  
+    const [tries, setTries] = useState(specificMovie.title);
+    useEffect(() => { setTries(specificMovie.tries)}, [specificMovie.tries])
+    console.log(tries)
+    }
+
+    // const [tries, setTries] = useState(specificMovie.tries)
    
 
     
@@ -66,7 +73,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
     
     
     return (
-        <div className="search-container">
+        <div onLoad={MakeComponent} className="search-container">
             { tries === 0 && answer === false &&
                 <div>
                     <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
@@ -137,6 +144,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
             { answer === true && 
             <div>
                 <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
+                <h1>{specificMovie.title}</h1>
                 <p>Correct!</p>
                 <p>Tries: {tries}</p>
             </div>}
