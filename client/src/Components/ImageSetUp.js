@@ -3,6 +3,7 @@ import React from "react";
 function ImageSetUp ({picNum, specificMovie}) {
     return (
         <div>
+            { picNum === 0 && <img className="guessImage" src={specificMovie.image1} />}
             { picNum === 1 && <img className="guessImage" src={specificMovie.image1} />}
             { picNum === 2 && <img className="guessImage" src={specificMovie.image2} />}
             { picNum === 3 && <img className="guessImage" src={specificMovie.image3} />}

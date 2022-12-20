@@ -2,17 +2,16 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ImageSlider from "./ImageSlider";
 
-function Search ({searchTerm, setSearchTerm, movies, specificMovie, tries, setTries}) {
+function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
 
-    const MakeComponent = props => {
-        const { path, value, info, update, specificMovie } = props;
-  
     const [tries, setTries] = useState(specificMovie.title);
     useEffect(() => { setTries(specificMovie.tries)}, [specificMovie.tries])
-    console.log(tries)
-    }
 
     // const [tries, setTries] = useState(specificMovie.tries)
+
+    const testload = () => {
+        console.log("It Loaded")
+    }
    
 
     
@@ -32,8 +31,9 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie, tries, setTr
             setAnswer(true)
             console.log("Correct")
         }
-        console.log(tries)
+    }
 
+    const patchTry = (e) => {
         fetch(`http://localhost:4000/movies/${specificMovie.id}`, {
             method: 'PATCH',
             body: JSON.stringify({
@@ -45,6 +45,9 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie, tries, setTr
             })
             .then((response) => response.json())
             .then((json) => console.log(json));
+
+            console.log("Shrimp")
+            console.log(specificMovie.tries)
     }
 
     // const addTries = (e) => {
@@ -73,7 +76,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie, tries, setTr
     
     
     return (
-        <div onLoad={MakeComponent} className="search-container">
+        <div onLoad={testload} className="search-container">
             { tries === 0 && answer === false &&
                 <div>
                     <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
@@ -137,6 +140,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie, tries, setTr
             { tries === 6 && answer === false && 
                 <div>
                     <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
+                    <h1 className="movieWrong">{specificMovie.title}</h1>
                     <p>Better luck next time!</p>
                     <p>Tries: {tries}</p>
                     <p>eye: {specificMovie.tries}</p>
@@ -144,7 +148,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie, tries, setTr
             { answer === true && 
             <div>
                 <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
-                <h1>{specificMovie.title}</h1>
+                <h1 className="nameCorrect">{specificMovie.title}</h1>
                 <p>Correct!</p>
                 <p>Tries: {tries}</p>
             </div>}

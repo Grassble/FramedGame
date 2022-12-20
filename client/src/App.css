@@ -41,3 +41,11 @@
   height: 40rem;
   width: 70rem;
 }
+
+.nameCorrect {
+  color: green;
+}
+
+.movieWrong {
+  color: rgb(216, 0, 0);
+}

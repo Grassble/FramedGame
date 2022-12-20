@@ -71,6 +71,13 @@ function ImageSlider ({specificMovie, tries}) {
           </div>
       
       }
+      { tries === 6 &&
+          <div>
+            <ImageSetUp picNum={picNum} tries={tries} specificMovie={specificMovie}/>
+            <button onClick={Pic1}>1</button><button onClick={Pic2}>2</button><button onClick={Pic3}>3</button><button onClick={Pic4}>4</button><button onClick={Pic5}>5</button><button onClick={Pic6}>6</button>
+          </div>
+      
+      }
     </div>
   )
 }
