@@ -83,7 +83,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Guess the Movie!</p>
-                    <p>Tries: {tries}</p>
+                    <p>Tries: 0</p>
                     <p>eye: {specificMovie.tries}</p>
                 </div>
             }
@@ -93,7 +93,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
-                    <p>Tries: {tries}</p>
+                    <p>Tries: 1</p>
                     <p>eye: {specificMovie.tries}</p>
                 </div>
             }
@@ -103,7 +103,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
-                    <p>Tries: {tries}</p>
+                    <p>Tries: 2</p>
                     <p>eye: {specificMovie.tries}</p>
                 </div>
             }
@@ -113,7 +113,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
-                    <p>Tries: {tries}</p>
+                    <p>Tries: 3</p>
                     <p>eye: {specificMovie.tries}</p>
                 </div>
             }
@@ -123,7 +123,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect!</p>
-                    <p>Tries: {tries}</p>
+                    <p>Tries: 4</p>
                     <p>eye: {specificMovie.tries}</p>
                 </div>
             }
@@ -133,7 +133,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <input type="text" placeholder="Search movie..." onChange={(e) => onSearch(e)}/>
                     <button onClick={addTry}>Submit</button> 
                     <p>Incorrect! Last Guess!</p>
-                    <p>Tries: {tries}</p>
+                    <p>Tries: 5</p>
                     <p>eye: {specificMovie.tries}</p>
                 </div>
             }
@@ -142,7 +142,7 @@ function Search ({searchTerm, setSearchTerm, movies, specificMovie}) {
                     <ImageSlider movies={movies} specificMovie={specificMovie} tries={tries}/><br /><br />
                     <h1 className="movieWrong">{specificMovie.title}</h1>
                     <p>Better luck next time!</p>
-                    <p>Tries: {tries}</p>
+                    <p>Tries: 6</p>
                     <p>eye: {specificMovie.tries}</p>
                 </div>}
             { answer === true && 

@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_215335) do
     t.string "image5"
     t.string "image6"
     t.integer "tries"
+    t.boolean "correct"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

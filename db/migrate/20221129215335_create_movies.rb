@@ -9,6 +9,7 @@ class CreateMovies < ActiveRecord::Migration[7.0]
       t.string :image5
       t.string :image6
       t.integer :tries
+      t.boolean :correct
 
       t.timestamps
     end
